@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bff8b744-f40f-4190-8caf-c21d1619e20b" name="Changes" comment="feat: 1) add root html-element 2) add folders:  blocks, images, vendor 3) copy index.css 4) add components: Header.js, Footer.js" />
+    <list default="true" id="bff8b744-f40f-4190-8caf-c21d1619e20b" name="Changes" comment="feat: add component: Main.js">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +75,7 @@
       <workItem from="1654530994665" duration="2209000" />
       <workItem from="1654541072124" duration="39000" />
       <workItem from="1654541120922" duration="3000" />
-      <workItem from="1654541153028" duration="7576000" />
+      <workItem from="1654541153028" duration="11842000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 1) add root html-element 2) add folders:  blocks, images, vendor 3) copy index.css 4) add components: Header.js, Footer.js">
       <created>1654591487651</created>
@@ -81,7 +84,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654591487651</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: 1) add root html-element 2) add folders:  blocks, images, vendor 3) copy index.css 4) add components: Header.js, Footer.js">
+      <created>1654591905861</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654591905861</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add component: Main.js">
+      <created>1654591932663</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654591932663</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +117,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 1) add root html-element 2) add folders:  blocks, images, vendor 3) copy index.css 4) add components: Header.js, Footer.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 1) add root html-element 2) add folders:  blocks, images, vendor 3) copy index.css 4) add components: Header.js, Footer.js" />
+    <MESSAGE value="feat: add component: Main.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add component: Main.js" />
   </component>
 </project>
