@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bff8b744-f40f-4190-8caf-c21d1619e20b" name="Changes" comment="feat: add components: PopupWithForm.js, ImagePopup.js">
+    <list default="true" id="bff8b744-f40f-4190-8caf-c21d1619e20b" name="Changes" comment="feat: popups (popupFormProfile, popupNewPlace, popupEditAvatar) open with Declarative approach.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +77,7 @@
       <workItem from="1654530994665" duration="2209000" />
       <workItem from="1654541072124" duration="39000" />
       <workItem from="1654541120922" duration="3000" />
-      <workItem from="1654541153028" duration="34184000" />
+      <workItem from="1654541153028" duration="38475000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 1) add root html-element 2) add folders:  blocks, images, vendor 3) copy index.css 4) add components: Header.js, Footer.js">
       <created>1654591487651</created>
@@ -114,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654632747558</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: popups (popupFormProfile, popupNewPlace, popupEditAvatar) open with Declarative approach.">
+      <created>1654698685919</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654698685919</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +143,7 @@
     <MESSAGE value="feat: add component: Main.js" />
     <MESSAGE value="feat: in Main.js add functions: handleEditAvatarClick, handleEditProfileClick, handleAddPlaceClick." />
     <MESSAGE value="feat: add components: PopupWithForm.js, ImagePopup.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add components: PopupWithForm.js, ImagePopup.js" />
+    <MESSAGE value="feat: popups (popupFormProfile, popupNewPlace, popupEditAvatar) open with Declarative approach." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: popups (popupFormProfile, popupNewPlace, popupEditAvatar) open with Declarative approach." />
   </component>
 </project>

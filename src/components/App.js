@@ -8,6 +8,10 @@ import {useState} from 'react';
 import React from 'react';
 
 function App() {
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
   }
@@ -20,9 +24,11 @@ function App() {
     setIsEditAvatarPopupOpen(true);
   }
 
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  function closeAllPopups() {
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+  }
 
   return (
     <>
@@ -36,7 +42,7 @@ function App() {
         <Footer />
       </div>
 
-      <PopupWithForm name="edit" title="Редактировать профиль" onEditProfile={handleEditProfileClick} isOpen={isEditProfilePopupOpen}>
+      <PopupWithForm name="edit" title="Редактировать профиль" onEditProfile={handleEditProfileClick} isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
         <form className="popup__form" name="popupFormProfile" noValidate>
           <fieldset className="popup__info">
             <input className="popup__input popup__input_name-user" type="text" id="nameUser-input" required
@@ -52,7 +58,7 @@ function App() {
         </form>  
       </PopupWithForm>
       
-      <PopupWithForm name="add" title="Новое место" onAddPlace={handleAddPlaceClick} isOpen={isAddPlacePopupOpen}>
+      <PopupWithForm name="add" title="Новое место" onAddPlace={handleAddPlaceClick} isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
         <form className="popup__form" name="popupNewPlace" noValidate>
           <fieldset className="popup__info">
             <input className="popup__input popup__input_name-place" type="text" id="namePlace-input" required size="14"
@@ -68,11 +74,11 @@ function App() {
         </form>
       </PopupWithForm>
       
-      <PopupWithForm name="delete-card" title="Вы уверены?">
+      <PopupWithForm name="delete-card" title="Вы уверены?" onClose={closeAllPopups}>
         <button className="button popup__save-button">Да</button>
       </PopupWithForm>
       
-      <PopupWithForm name="edit-avatar" title="Обновить аватар" onEditAvatar={handleEditAvatarClick} isOpen={isEditAvatarPopupOpen}>
+      <PopupWithForm name="edit-avatar" title="Обновить аватар" onEditAvatar={handleEditAvatarClick} isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
         <form className="popup__form" name="popupEditAvatar" noValidate>
           <fieldset className="popup__info">
             <input className="popup__input popup__input_avatar" type="url" id="avatar-input" required size="14"
