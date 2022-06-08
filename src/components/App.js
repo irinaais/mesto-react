@@ -4,17 +4,39 @@ import Footer from './Footer';
 import Main from './Main';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import {useState} from 'react';
+import React from 'react';
 
 function App() {
+  function handleEditProfileClick() {
+    setIsEditProfilePopupOpen(true);
+  }
+
+  function handleAddPlaceClick() {
+    setIsAddPlacePopupOpen(true);
+  }
+
+  function handleEditAvatarClick() {
+    setIsEditAvatarPopupOpen(true);
+  }
+
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+
   return (
     <>
       <div className="page">
         <Header />
-        <Main />
+        <Main 
+          onEditProfile={handleEditProfileClick}
+          onAddPlace={handleAddPlaceClick}
+          onEditAvatar={handleEditAvatarClick}
+        />
         <Footer />
       </div>
 
-      <PopupWithForm name="edit" title="Редактировать профиль">
+      <PopupWithForm name="edit" title="Редактировать профиль" onEditProfile={handleEditProfileClick} isOpen={isEditProfilePopupOpen}>
         <form className="popup__form" name="popupFormProfile" noValidate>
           <fieldset className="popup__info">
             <input className="popup__input popup__input_name-user" type="text" id="nameUser-input" required
@@ -30,7 +52,7 @@ function App() {
         </form>  
       </PopupWithForm>
       
-      <PopupWithForm name="add" title="Новое место">
+      <PopupWithForm name="add" title="Новое место" onAddPlace={handleAddPlaceClick} isOpen={isAddPlacePopupOpen}>
         <form className="popup__form" name="popupNewPlace" noValidate>
           <fieldset className="popup__info">
             <input className="popup__input popup__input_name-place" type="text" id="namePlace-input" required size="14"
@@ -50,7 +72,7 @@ function App() {
         <button className="button popup__save-button">Да</button>
       </PopupWithForm>
       
-      <PopupWithForm name="edit-avatar" title="Обновить аватар">
+      <PopupWithForm name="edit-avatar" title="Обновить аватар" onEditAvatar={handleEditAvatarClick} isOpen={isEditAvatarPopupOpen}>
         <form className="popup__form" name="popupEditAvatar" noValidate>
           <fieldset className="popup__info">
             <input className="popup__input popup__input_avatar" type="url" id="avatar-input" required size="14"
