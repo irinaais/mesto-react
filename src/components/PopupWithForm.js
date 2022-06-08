@@ -1,6 +1,10 @@
 function PopupWithForm(props) {
+  function handleOverlayClick(evt) {
+    if (evt.target===evt.currentTarget) {props.onClose()};
+  }
+
   return(
-      <div className={`popup popup_${props.name} ${props.isOpen && 'popup_opened'}`}>
+      <div className={`popup popup_${props.name} ${props.isOpen && 'popup_opened'}`} onClick={handleOverlayClick}>
         <div className={`popup__${props.name}`}>
           <h2 className="popup__title">{props.title}</h2>
           {props.children}
