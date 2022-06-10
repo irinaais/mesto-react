@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bff8b744-f40f-4190-8caf-c21d1619e20b" name="Changes" comment="feat: popups closes on click to overlay">
-      <change afterPath="$PROJECT_DIR$/src/utils/Api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
+    <list default="true" id="bff8b744-f40f-4190-8caf-c21d1619e20b" name="Changes" comment="feat: сonnected api, user data is loaded from the server">
+      <change afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
@@ -79,7 +78,7 @@
       <workItem from="1654530994665" duration="2209000" />
       <workItem from="1654541072124" duration="39000" />
       <workItem from="1654541120922" duration="3000" />
-      <workItem from="1654541153028" duration="53708000" />
+      <workItem from="1654541153028" duration="67858000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 1) add root html-element 2) add folders:  blocks, images, vendor 3) copy index.css 4) add components: Header.js, Footer.js">
       <created>1654591487651</created>
@@ -137,7 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654713346660</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: сonnected api, user data is loaded from the server">
+      <created>1654775302242</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654775302242</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: сonnected api, user data is loaded from the server">
+      <created>1654775315543</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1654775315543</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +175,7 @@
     <MESSAGE value="feat: popups (popupFormProfile, popupNewPlace, popupEditAvatar) open with Declarative approach." />
     <MESSAGE value="feat: popups (popupFormProfile, popupNewPlace, popupEditAvatar) close with Declarative approach." />
     <MESSAGE value="feat: popups closes on click to overlay" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: popups closes on click to overlay" />
+    <MESSAGE value="feat: сonnected api, user data is loaded from the server" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: сonnected api, user data is loaded from the server" />
   </component>
 </project>

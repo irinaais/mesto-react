@@ -1,4 +1,3 @@
-import avatar from '../images/jack_iv_custo.jpg';
 import React, {useState, useEffect} from 'react';
 import api from '../utils/Api';
 
@@ -6,14 +5,21 @@ function Main(props) {
   const [userName, setUserName]=React.useState('');
   const [userDescription, setUserDescription]=React.useState('');
   const [userAvatar, setUserAvatar]=React.useState('');
+  const [cards, setCards]=React.useState([]);
 
   React.useEffect(() => {
-      api.getUserInfo().then((res) => {
-        setUserName(res.name);
-        setUserDescription(res.about);
-        setUserAvatar(res.avatar)
+      api.getUserInfo().then((userInfo) => {
+        setUserName(userInfo.name);
+        setUserDescription(userInfo.about);
+        setUserAvatar(userInfo.avatar);
       })
     }, []);
+
+  React.useEffect(() => {
+    api.getInitialCards().then((cards) => {
+      setCards(cards);
+    })
+  }, []);
 
   return(
     <>
@@ -40,6 +46,25 @@ function Main(props) {
 
         <section className="cards page__section">
           <ul className="elements">
+            {cards.map((card) => {
+              return <li className="element">
+                <img
+                  className="element__image"
+                  src={card.link}
+                  alt={card.name}
+                />
+                <button className="button button_variant_delete" type="button"
+                        aria-label="Удалить карточку"></button>
+                <div className="element__box">
+                  <h2 className="element__town">{card.name}</h2>
+                  <div className="element__like-box">
+                    <button className="button button_variant_like" type="button"
+                            aria-label="Поставить лайк"></button>
+                    <span className="element__like-count">0</span>
+                  </div>
+                </div>
+              </li>
+            })}
           </ul>
         </section>
       </main>

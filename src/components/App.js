@@ -1,11 +1,10 @@
 import '../index.css';
+import React, {useState, useEffect} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
-import React, {useState, useEffect} from 'react';
-
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -92,26 +91,6 @@ function App() {
       </PopupWithForm>
       
       <ImagePopup />
-      
-      <template id="template">
-        <li className="element">
-          <img
-            className="element__image"
-            src="#"
-            alt="нет фотографии"
-          />
-          <button className="button button_variant_delete" type="button"
-                  aria-label="Удалить карточку"></button>
-          <div className="element__box">
-            <h2 className="element__town">Карачаевск</h2>
-            <div className="element__like-box">
-              <button className="button button_variant_like" type="button"
-                      aria-label="Поставить лайк"></button>
-              <span className="element__like-count">0</span>
-            </div>
-          </div>
-        </li>
-      </template>
     </>
   );
 }
