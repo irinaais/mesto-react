@@ -1,6 +1,6 @@
 function PopupWithForm(props) {
   function handleOverlayClick(evt) {
-    if (evt.target===evt.currentTarget) {props.onClose()};
+    if (evt.target===evt.currentTarget) {props.onClose()}
   }
 
   return(
@@ -8,7 +8,7 @@ function PopupWithForm(props) {
         <div className={`popup__${props.name}`}>
           <h2 className="popup__title">{props.title}</h2>
           {props.children}
-          <button className="button popup__close-button" onClick={props.onClose} type="button" aria-label="Закрыть попап"></button>
+          <button className="button popup__close-button" onClick={props.onClose} type="button" aria-label="Закрыть попап"/>
         </div>
       </div>
   );

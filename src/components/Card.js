@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 function Card(props) {
 
@@ -7,6 +7,7 @@ function Card(props) {
       className="element__image"
       src={props.card.link}
       alt={props.card.name}
+      onClick={_ => props.onCardClick(props.card)}
     />
     <button className="button button_variant_delete" type="button" aria-label="Удалить карточку"/>
     <div className="element__box">

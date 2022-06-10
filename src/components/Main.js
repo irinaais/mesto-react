@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import api from '../utils/Api';
 import Card from '../components/Card';
 
@@ -47,7 +47,7 @@ function Main(props) {
 
         <section className="cards page__section">
           <ul className="elements">
-            {cards.map((card) => <Card key={card._id} card={card}/>)}
+            {cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick}/>)}
           </ul>
         </section>
       </main>
