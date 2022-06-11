@@ -9,7 +9,7 @@ function PopupWithForm(props) {
     <div className={`popup popup_${props.name} ${props.isOpen && 'popup_opened'}`} onClick={handleOverlayClick}>
       <div className={`popup__${props.name}`}>
         <h2 className="popup__title">{props.title}</h2>
-          <form className="popup__form" name="popupFormProfile" noValidate>
+          <form className="popup__form" name={`${props.name}-form`}>
             <fieldset className="popup__info">
               {props.children}
             </fieldset>
