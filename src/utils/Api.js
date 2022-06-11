@@ -1,14 +1,14 @@
-const error = res => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Ошибка: ${res.status}`);
-}
-
 class Api {
   constructor(options) {
     this._url = options.url;
     this._headers = options.headers;
+  }
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
   }
 
   getUserInfo() {
@@ -16,7 +16,7 @@ class Api {
       method: 'GET',
       headers: this._headers
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   getInitialCards() {
@@ -24,7 +24,7 @@ class Api {
       method: 'GET',
       headers: this._headers
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   saveUserInfo(userData) {
@@ -36,7 +36,7 @@ class Api {
         about: userData.workUser
       })
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   addCard(data) {
@@ -45,7 +45,7 @@ class Api {
       headers: this._headers,
       body: JSON.stringify(data)
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   deleteCard(cardId) {
@@ -53,7 +53,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   likeCard(cardId) {
@@ -61,7 +61,7 @@ class Api {
       method: 'PUT',
       headers: this._headers
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   deleteLikeCard(cardId) {
@@ -69,7 +69,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   editAvatar(userData) {
@@ -80,13 +80,13 @@ class Api {
         avatar: userData.avatar
       })
     })
-      .then(error);
+      .then(this._checkResponse);
   }
 
   getUserInfoAndInitialCards() {
     return Promise.all([this.getInitialCards(), this.getUserInfo()])
   }
-};
+}
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-41',

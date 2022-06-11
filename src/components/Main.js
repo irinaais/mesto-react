@@ -9,17 +9,21 @@ function Main(props) {
   const [cards, setCards]=React.useState([]);
 
   React.useEffect(() => {
-      api.getUserInfo().then((userInfo) => {
+    api.getUserInfo()
+      .then((userInfo) => {
         setUserName(userInfo.name);
         setUserDescription(userInfo.about);
         setUserAvatar(userInfo.avatar);
       })
-    }, []);
+      .catch(err => console.log(err));
+  }, []);
 
   React.useEffect(() => {
-    api.getInitialCards().then((cards) => {
-      setCards(cards);
-    })
+    api.getInitialCards()
+      .then((cards) => {
+        setCards(cards);
+      })
+      .catch(err => console.log(err));
   }, []);
 
   return(
