@@ -4,7 +4,6 @@ import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
-
   return(
     <>
       <main>
@@ -30,7 +29,7 @@ function Main(props) {
 
         <section className="cards page__section">
           <ul className="elements">
-            {props.cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick}/>)}
+            {props.cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick} onCardLike={props.onCardLike}/>)}
           </ul>
         </section>
       </main>

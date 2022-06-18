@@ -3,23 +3,23 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
 function Card(props) {
   const currentUser = React.useContext(CurrentUserContext);
-  const isOwn = props.card.owner._id === currentUser._id; //являемся ли мы владельцем текущей карточки
+ // const isOwn = props.card.owner._id === currentUser._id; //являемся ли мы владельцем текущей карточки
   const isLiked = props.card.likes.some(i => i._id === currentUser._id); //есть ли у карточки лайк, поставленный текущим пользователем
-  const cardDeleteButtonClassName = (`button ${isOwn && 'card__delete-button'}`); //`className` кнопки удаления
-  const cardLikeButtonClassName = (`button button_variant_like ${isOwn && 'button_variant_active-like'}`); //`className` кнопки лайка
+ // const cardDeleteButtonClassName = (`button ${isOwn && 'card__delete-button'}`); //`className` кнопки удаления
+  const cardLikeButtonClassName = (`button button_variant_like ${isLiked && 'button_variant_active-like'}`); //`className` кнопки лайка
 
   return <li className="element">
     <img
       className="element__image"
       src={props.card.link}
       alt={props.card.name}
-      onClick={_ => props.onCardClick(props.card)}
+      onClick={() => props.onCardClick(props.card)}
     />
     <button className="button button_variant_delete" type="button" aria-label="Удалить карточку"/>
     <div className="element__box">
       <h2 className="element__town">{props.card.name}</h2>
       <div className="element__like-box">
-        <button className="button button_variant_like" type="button" aria-label="Поставить лайк"/>
+        <button className={cardLikeButtonClassName} onClick={() => {props.onCardLike(props.card)}} type="button" aria-label="Поставить лайк"/>
         <span className="element__like-count">0</span>
       </div>
     </div>
