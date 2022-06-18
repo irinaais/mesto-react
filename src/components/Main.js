@@ -1,19 +1,9 @@
 import React from 'react';
-import api from '../utils/Api';
 import Card from '../components/Card';
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function Main(props) {
-  const [cards, setCards]=React.useState([]);
   const user = React.useContext(CurrentUserContext);
-
-  React.useEffect(() => {
-    api.getInitialCards()
-      .then((cards) => {
-        setCards(cards);
-      })
-      .catch(err => console.log(err));
-  }, []);
 
   return(
     <>
@@ -40,7 +30,7 @@ function Main(props) {
 
         <section className="cards page__section">
           <ul className="elements">
-            {cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick}/>)}
+            {props.cards.map((card) => <Card key={card._id} card={card} onCardClick={props.onCardClick}/>)}
           </ul>
         </section>
       </main>

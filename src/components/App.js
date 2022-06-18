@@ -14,11 +14,20 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [currentUser, setCurrentUser] = React.useState('');
+  const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
     api.getUserInfo()
       .then((userInfo) => {
         setCurrentUser(userInfo);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+  React.useEffect(() => {
+    api.getInitialCards()
+      .then((cards) => {
+        setCards(cards);
       })
       .catch(err => console.log(err));
   }, []);
@@ -55,6 +64,7 @@ function App() {
           onAddPlace={handleAddPlaceClick}
           onEditAvatar={handleEditAvatarClick}
           onCardClick={onCardClick}
+          cards={cards}
         />
         <Footer />
       </div>
