@@ -5,12 +5,23 @@ import Footer from './Footer';
 import Main from './Main';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import api from "../utils/Api";
+import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
+  const [currentUser, setCurrentUser] = React.useState('');
+
+  React.useEffect(() => {
+    api.getUserInfo()
+      .then((userInfo) => {
+        setCurrentUser(userInfo);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
@@ -36,10 +47,10 @@ function App() {
   }
 
   return (
-    <>
+    <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
-        <Main 
+        <Main
           onEditProfile={handleEditProfileClick}
           onAddPlace={handleAddPlaceClick}
           onEditAvatar={handleEditAvatarClick}
@@ -57,7 +68,7 @@ function App() {
                size="14" minLength="2" maxLength="200" placeholder="О себе" name="workUser"/>
         <span className="popup__input-error workUser-input-error"/>
       </PopupWithForm>
-      
+
       <PopupWithForm name="add" title="Новое место" onAddPlace={handleAddPlaceClick}
                      isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} buttonText="Создать">
         <input className="popup__input popup__input_name-place" type="text" id="namePlace-input" required size="14"
@@ -67,19 +78,19 @@ function App() {
                placeholder="Ссылка на картинку" name="link"/>
         <span className="popup__input-error linkPlace-input-error"/>
       </PopupWithForm>
-      
+
       <PopupWithForm name="delete-card" title="Вы уверены?" onClose={closeAllPopups} buttonText="Да">
       </PopupWithForm>
-      
+
       <PopupWithForm name="edit-avatar" title="Обновить аватар" onEditAvatar={handleEditAvatarClick}
                      isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} buttonText="Сохранить">
         <input className="popup__input popup__input_avatar" type="url" id="avatar-input" required size="14"
                placeholder="Ссылка на аватар" name="avatar"/>
         <span className="popup__input-error avatar-input-error"/>
       </PopupWithForm>
-      
+
       <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
-    </>
+    </CurrentUserContext.Provider>
   );
 }
 
