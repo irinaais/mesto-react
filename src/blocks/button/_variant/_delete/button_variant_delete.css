@@ -9,3 +9,7 @@
     height: 19px;
     background-color: transparent;
 }
+
+.button_variant_delete_hidden {
+    display: none;
+}

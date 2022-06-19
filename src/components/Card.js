@@ -3,9 +3,9 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext";
 
 function Card(props) {
   const currentUser = React.useContext(CurrentUserContext);
- // const isOwn = props.card.owner._id === currentUser._id; //являемся ли мы владельцем текущей карточки
+  const isOwn = props.card.owner._id === currentUser._id; //являемся ли мы владельцем текущей карточки
   const isLiked = props.card.likes.some(i => i._id === currentUser._id); //есть ли у карточки лайк, поставленный текущим пользователем
- // const cardDeleteButtonClassName = (`button ${isOwn && 'card__delete-button'}`); //`className` кнопки удаления
+  const cardDeleteButtonClassName = (`${isOwn ? 'button button_variant_delete' : 'button_variant_delete_hidden'}`); //`className` кнопки удаления
   const cardLikeButtonClassName = (`button button_variant_like ${isLiked && 'button_variant_active-like'}`); //`className` кнопки лайка
 
   return <li className="element">
@@ -15,7 +15,7 @@ function Card(props) {
       alt={props.card.name}
       onClick={() => props.onCardClick(props.card)}
     />
-    <button className="button button_variant_delete" type="button" aria-label="Удалить карточку"/>
+    <button className={cardDeleteButtonClassName} onClick={() => {props.onCardDelete(props.card)}} type="button" aria-label="Удалить карточку"/>
     <div className="element__box">
       <h2 className="element__town">{props.card.name}</h2>
       <div className="element__like-box">
