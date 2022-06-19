@@ -7,6 +7,7 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import api from "../utils/Api";
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
+import EditProfilePopup from './EditProfilePopup';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -71,6 +72,16 @@ function App() {
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== card._id && c))
       })
+      .catch(err => console.log(err));
+  }
+
+  function handleUpdateUser(userData) {
+    api.saveUserInfo(userData)
+      .then((res) => {
+        setCurrentUser(res);
+        closeAllPopups();
+      })
+      .catch(err => console.log(err));
   }
 
   return (
@@ -89,15 +100,10 @@ function App() {
         <Footer />
       </div>
 
-      <PopupWithForm name="edit" title="Редактировать профиль" onEditProfile={handleEditProfileClick}
-                     isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} buttonText="Сохранить">
-        <input className="popup__input popup__input_name-user" type="text" id="nameUser-input" required
-               size="14" minLength="2" maxLength="40" placeholder="Ваше имя" name="nameUser"/>
-        <span className="popup__input-error nameUser-input-error"/>
-        <input className="popup__input popup__input_work-user" type="text" id="workUser-input" required
-               size="14" minLength="2" maxLength="200" placeholder="О себе" name="workUser"/>
-        <span className="popup__input-error workUser-input-error"/>
-      </PopupWithForm>
+      <EditProfilePopup
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+        onUpdateUser={handleUpdateUser}/>
 
       <PopupWithForm name="add" title="Новое место" onAddPlace={handleAddPlaceClick}
                      isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} buttonText="Создать">
