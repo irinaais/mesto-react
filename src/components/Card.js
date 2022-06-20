@@ -8,6 +8,10 @@ function Card(props) {
   const cardDeleteButtonClassName = (`${isOwn ? 'button button_variant_delete' : 'button_variant_delete_hidden'}`); //`className` кнопки удаления
   const cardLikeButtonClassName = (`button button_variant_like ${isLiked && 'button_variant_active-like'}`); //`className` кнопки лайка
 
+  function handleConfirmDeleteCard() {
+    props.onCardDelete(props.card);
+  }
+
   return <li className="element">
     <img
       className="element__image"
@@ -15,7 +19,8 @@ function Card(props) {
       alt={props.card.name}
       onClick={() => props.onCardClick(props.card)}
     />
-    <button className={cardDeleteButtonClassName} onClick={() => {props.onCardDelete(props.card)}} type="button" aria-label="Удалить карточку"/>
+    {/*<button className={cardDeleteButtonClassName} onClick={() => {props.onCardDelete(props.card)}} type="button" aria-label="Удалить карточку"/>*/}
+    <button className={cardDeleteButtonClassName} onClick={handleConfirmDeleteCard} type="button" aria-label="Удалить карточку"/>
     <div className="element__box">
       <h2 className="element__town">{props.card.name}</h2>
       <div className="element__like-box">
