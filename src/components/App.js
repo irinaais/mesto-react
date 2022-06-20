@@ -9,6 +9,7 @@ import api from "../utils/Api";
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
+import AddPlacePopup from "./AddPlacePopup";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -94,6 +95,15 @@ function App() {
       .catch(err => console.log(err));
   }
 
+  function handleAddPlaceSubmit(data) {
+    api.addCard(data)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
+        closeAllPopups();
+      })
+      .catch(err => console.log(err));
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -115,15 +125,10 @@ function App() {
         onClose={closeAllPopups}
         onUpdateUser={handleUpdateUser}/>
 
-      <PopupWithForm name="add" title="Новое место" onAddPlace={handleAddPlaceClick}
-                     isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} buttonText="Создать">
-        <input className="popup__input popup__input_name-place" type="text" id="namePlace-input" required size="14"
-               minLength="2" maxLength="30" placeholder="Название" name="name"/>
-        <span className="popup__input-error namePlace-input-error"/>
-        <input className="popup__input popup__input_link" type="url" id="linkPlace-input" required size="14"
-               placeholder="Ссылка на картинку" name="link"/>
-        <span className="popup__input-error linkPlace-input-error"/>
-      </PopupWithForm>
+      <AddPlacePopup
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+        onAddPlace={handleAddPlaceSubmit}/>
 
       <PopupWithForm name="delete-card" title="Вы уверены?" onClose={closeAllPopups} buttonText="Да">
       </PopupWithForm>
