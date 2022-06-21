@@ -19,7 +19,6 @@ function Card(props) {
       alt={props.card.name}
       onClick={() => props.onCardClick(props.card)}
     />
-    {/*<button className={cardDeleteButtonClassName} onClick={() => {props.onCardDelete(props.card)}} type="button" aria-label="Удалить карточку"/>*/}
     <button className={cardDeleteButtonClassName} onClick={handleConfirmDeleteCard} type="button" aria-label="Удалить карточку"/>
     <div className="element__box">
       <h2 className="element__town">{props.card.name}</h2>
